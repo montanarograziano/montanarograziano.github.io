@@ -11,6 +11,8 @@ File: Layout CSS
 @import url("font-awesome.min.css");
 @import url("framework.css");
 
+html{scroll-behavior: smooth;}
+
 /* Rows
 --------------------------------------------------------------------------------------------------------------- */
 .row0, .row0 a{}
