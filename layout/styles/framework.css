@@ -59,7 +59,8 @@ img{width:auto; max-width:100%; height:auto; margin:0; padding:0; border:none; l
 /* Fonts
 --------------------------------------------------------------------------------------------------------------- */
 body, input, textarea, select{font-family:Verdana, Geneva, sans-serif;}
-h1, h2, h3, h4, h5, h6, .heading{font-family:Georgia, "Times New Roman", Times, serif;}
+h1, h2, h3, h4, h5, h6, .heading{font-family:Georgia, "Times New Roman", Times, serif; padding:5px;font-weight: bold;}
+.card-text{font-family:Georgia, "Times New Roman", Times, serif; padding:5px;color:black;}
 
 
 /* Forms
@@ -76,7 +77,7 @@ label{margin-bottom:5px;}
 h1, h2, h3, h4, h5, h6, .heading{margin:0 0 20px 0; font-size:1.4rem; line-height:normal; font-weight:normal; text-transform:capitalize;}
 .heading.nospace{margin:0;}
 
-.projects-label{line-height: normal;
+.label{line-height: normal;
     font-weight: normal;
     text-transform: capitalize;
     font-size: xx-large;
@@ -107,7 +108,8 @@ address, article, aside, figcaption, figure, footer, header, main, nav, section{
 
 /* Grid
 --------------------------------------------------------------------------------------------------------------- */
-.one_half, .one_third, .two_third, .one_quarter, .two_quarter, .three_quarter{display:inline-block; float:left; margin:0 0 0 3.06748466257669%; list-style:none;}
+.one_half, .one_third, .two_third, .one_quarter, .two_quarter, .three_quarter{display:inline-block; float:left; margin:0 0 0 3.06748466257669%; list-style:none;border: 1px solid rgba(0,0,0,.125);border-radius:15px;text-align:center;
+    border-radius: 15px;}
 
 .first{margin-left:0; clear:left;}
 
