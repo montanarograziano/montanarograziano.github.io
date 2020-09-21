@@ -11,7 +11,7 @@ File: Layout CSS
 @import url("font-awesome.min.css");
 @import url("framework.css");
 
-html{scroll-behavior: smooth;}
+html{scroll-behavior:smooth;}
 
 /* Rows
 --------------------------------------------------------------------------------------------------------------- */
@@ -285,11 +285,11 @@ input:focus, textarea:focus, *:required:focus{border-color:#04DEE0;}
 
 /* Rows */
 .row0, .row0 a{color:#FFFFFF;}
-.row1{color:#FFFFFF; background-color:rgba(0,0,0); position: fixed;}
+.row1{color:#FFFFFF; background-color:#111111; position: fixed;}
 .row2{color:#FFFFFF; background-color:#222222;}
 .row3{color:#7A7A7A; background-color:#FFFFFF;}
 .row4{color:#7A7A7A; background-color:#F7F7F7;}
-.row5, .row5 a{color:#7A7A7A; background-color:#FFFFFF;}
+.row5, .row5 a{color:#7A7A7A; background-color:#1a1a1a;}
 
 .row3 .heading, .row4 .heading{color:#121212;}
 
