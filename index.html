@@ -1,172 +1,621 @@
 <!DOCTYPE html>
-<!--
-Template Name: Oleald
-Author: <a href="https://www.os-templates.com/">OS Templates</a>
-Author URI: https://www.os-templates.com/
-Licence: Free to use under our free template licence terms
-Licence URI: https://www.os-templates.com/template-terms
--->
-<html lang="en">
-<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
-<head>
-<title>Graziano Montanaro's website.</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
-</head>
-<body id="top">
+<html lang="en" class="no-js">
+  <!-- Head -->
+  <head>
+    <title>Graziano Montanaro | Graziano Montanaro's portfolio</title>
 
+    <!-- Meta -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="keywords" content="Portfolio, programming, coding, computer science">
+    <meta name="description" content="Graziano Montanaro's portfolio">
+    <meta name="author" content="Graziano Montanaro">
 
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> 
 
-<!-- Top Background Image Wrapper -->
-<div class="bgded overlay light" style="background-image:url('images/demo/backgrounds/background1.jpg');"> 
-  
-  
-  <div class="wrapper row1">
-    <header id="header" class="hoc clear"> 
-      <div id="logo" class="fl_left">
-        <h1><a href="index.html">Graziano Montanaro</a></h1>
-      </div>
-      <nav id="mainav" class="fl_right">
-        <ul class="clear">
-          <li><a href="#aboutme">About Me</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contactme">Contact Me</a></li>
-          <li><a href="https://www.linkedin.com/in/graziano-montanaro-05255317a/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-          <li><a href="https://github.com/prewarning/" target="_blank"><i class="fa fa-github"></i></a></li>
-        </ul>
-      </nav>
-      
+    <!-- Bootstrap Styles -->
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 
+
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" type="text/css" href="assets/vendors/font-awesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/vendors/slick-carousel/slick.css"> 
+    <link rel="stylesheet" type="text/css" href="assets/fonts/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="assets/vendors/magnific-popup/magnific-popup.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/hovereffects.css"> 
+    <!-- Theme Styles -->
+    <link href="assets/css/scrolling-nav.css" rel="stylesheet">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+  </head>
+  <!-- End Head -->
+
+  <body>
+    <!-- Header -->
+    <header id="home">
+      <!-- Navbar --> 
+	  <nav class="navbar navbar-expand-lg navbar-dark bg-white fixed-top" id="mainNav">
+		<div class="container">
+		  <a class="navbar-brand js-scroll-trigger" href="#page-top">Graziano Montanaro</a>  
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="ti-menu text-primary"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav ml-auto">
+			<li class="nav-item">
+				<a class="nav-link js-scroll-trigger" href="#home">Home</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link js-scroll-trigger" href="#about">About</a>
+			  </li>
+			   <li class="nav-item">
+				<a class="nav-link js-scroll-trigger" href="#curriculum">Curriculum</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link js-scroll-trigger" href="#Contacts">Contacts</a>
+			  </li>
+			</ul>
+		  </div>
+		</div>
+	  </nav>
+
+      <!-- End Navbar --> 
+
+		<section class="wt-section hero-large hero mt-md-5">
+			<div class="hero-img bg-overlay" data-overlay="0" style="background-image: url(assets/img/intro/background1.jpg); opacity: 1.0; filter: brightness(50%);"></div>
+			<div class="container">
+				<div class="row align-items-center text-white">
+					<div class=" col-md-6">
+						<!-- heading -->
+						<h3 class="text-uppercase mb-3 display-4 font-weight-bolder" data-aos="fade-right">
+							Graziano Montanaro
+						</h3>
+            <p style="font-size: larger;">Master's Student in Computer Science, digital enthusiast.</p>
+						<button class="btn btn-lg btn-outline-light py-2 mt-3 px-4 btn-pill" data-aos="fade-left">See more</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
     </header>
-  </div>
-  
-  
-  
-  <div id="pageintro" class="hoc clear"> 
-    
-    <article>
-      <h3 class="heading";>Hi everyone.</h3>
-      <p>I'm a Computer Science student who loves programming</br> and learning new things.</p>
-      <p>Here's some projects I've worked on:</p>
-      <footer><a id="#go-to-projects" class="btn" href="#projects">View projects</a></footer>
-    </article>
-    
-  </div>
-  
-</div>
-<!-- End Top Background Image Wrapper -->
+    <!-- End Header -->
 
-<div id="aboutme" class="wrapper row">
-  <main class="hoc container clear">
-    <div class="one_half_first">
-      <h6 class="label">About Me</h6>
-      <p>I'm a 22 years Computer Science student at the University "A.Moro" of Bari.</p>
-      <p>I have a Bachelor's Degree in <em>Computer Science and Digital Communication</em>, graduated summa cum laude. My thesis work was done in the UX/Usability field wich is one my main interests along with Artificial Intelligence.</p>
+    <main role="main">
+
+<section class="wt-section bg-light" id="about">
+    <div class="container"> 
+		<div class="row justify-content-md-center text-center pb-lg-4 mb-lg-5 mb-4">
+          <div class="col-md-8 text-center w-md-50 mx-auto mb-0 ">
+            <h2 class="mb-md-2">About me</h2>
+            <p class="lead text-muted">I'm a 22 years Computer Science student at the University "A.Moro" of Bari.</p>
+            <p class="lead text-muted">I have a Bachelor's Degree in Computer Science and Digital Communication, graduated summa cum laude with a Thesis on <i>Automatic Detection of UX smells</i>.</p>
+            <p class="lead text-muted">Contact me here:</p>
+            <a class="m-1 btn btn-outline-primary btn-sm" href="https://www.linkedin.com/in/graziano-montanaro-05255317a/">
+              <span class="fab fa-linkedin-in"></span>
+               LinkedIn
+            </a>
+            <a class="m-1 btn btn-outline-info btn-sm github" href="https://www.github.com/montanarograziano">
+              <span class="fab fa-github"></span>
+               GitHub
+            </a>
+            <a class="m-1 btn btn-outline-info btn-sm" href="mailto:graziano.montanaro98@gmail.com">
+              <span class="fas fa-envelope"></span>
+               Email
+            </a>
+          </div>
+</section>
+
+  <section class="wt-section pb-0" id="curriculum">
+    <div class="container">
+        <div class="row justify-content-between align-items-center" data-aos="fade-right" data-aos-easing="linear" data-aos-delay="200">
+            <div class="col-md-7"> 
+                <h2 class="mb-4 ">Curriculum</h2>
+                <p class="text-muted">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eligendi fugiat!</p>
+            </div>
+          
+        </div>
     </div>
-  </main>
+</section> 
+
+  <section class="wt-section">
+    <div class="container">
+        <div class="row justify-content-between align-items-center" data-aos="fade-left" data-aos-easing="linear" data-aos-delay="400">
+            <div class="col-md-7"> 
+                <h2 class="mb-4">Professional Team</h2>
+                <p class="text-muted">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eligendi fugiat!</p>
+            </div>
+          
+		  <div class="col-md-5">
+               <img src="assets/img/about/2.jpg" width="90%" class="rounded-md" alt="">
+            </div>
+        </div>
+    </div>
+</section> 
+	<section class="wt-section bg-primary">
+        <div class="container">
+		<div class="row justify-content-md-center text-center pb-lg-4 mb-lg-5 mb-4">
+          <div class="col-md-8 text-center w-md-50 mx-auto mb-0 ">
+            <h2 class="mb-md-2">Amenities</h2>
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
+          </div>
+		</div>
+          <!-- Feature Blocks -->
+          <div class="row">  
+			<div class="col-md-4">
+                <div class="bg-white p-5 mb-4 text-center rounded-md overflow-hidden b-hover" data-aos="fade-up"  data-aos-easing="linear" data-aos-delay="300">
+						<i class="ti-share-alt display-4 d-block text-primary mb-4"></i> 
+                        <h6 class="my-2">Steam Bath</h6>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod</p> 
+                </div>
+            </div>
+					<div class="col-md-4">
+                <div class="bg-white p-5 mb-4 text-center rounded-md overflow-hidden b-hover" data-aos="fade-up"  data-aos-easing="linear" data-aos-delay="500">
+                      <i class="ti-pulse display-4 d-block text-primary mb-4"></i> 
+                        <h6 class="my-2">Wi-Fi</h6>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod</p> 
+                </div>
+            </div>
+			
+			<div class="col-md-4">
+                <div class="bg-white p-5 mb-4 text-center rounded-md overflow-hidden b-hover" data-aos="fade-up"  data-aos-easing="linear" data-aos-delay="800">
+						<i class="ti-panel display-4 d-block text-primary mb-4"></i> 
+                        <h6 class="my-2">Air Conditioned</h6>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod</p> 
+                </div>
+            </div>
+          </div>
+          <!-- End Feature Blocks -->  
+        </div>
+      </section>
+	  
+	   
+
+<section class="wt-section" id="projects"> 
+ <div class="container">
+        <div class="row justify-content-md-center text-center pb-lg-5">
+            <div class="col-md-12">
+                <h2 class="h1">Portfolio</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, </p>
+            </div>
+        </div>
+         <div class="portfolio-menu mt-2 mb-4 pb-3">
+            <ul>
+               <li class="btn btn-pill mr-2 btn-outline-dark active" data-filter="*">All</li>
+               <li class="btn btn-pill mr-2 btn-outline-dark" data-filter=".gts">Graphic</li>
+               <li class="btn btn-pill mr-2 btn-outline-dark" data-filter=".lap">UI Project</li>
+               <li class="btn btn-pill btn-outline-dark text" data-filter=".selfie">Fullstack</li>
+            </ul>
+         </div>
+         <div class="portfolio-item row" data-aos="fade-up" data-aos-easing="linear" data-aos-delay="100">
+            <div class="item gts col-lg-3 col-md-4 col-6 col-sm"> 
+				<div class="hovereffect rounded-md overflow-hidden">
+					<img class="img-fluid img-responsive" src="assets/img/portfolio/img1.jpg" alt="">
+						<div class="overlay"> 
+							<p>
+								<a href="assets/img/portfolio/img1.jpg" class="fancylight popup-btn info" data-fancybox-group="light">My Profile
+								<i>view</i></a>
+							</p>
+						</div>
+					</div> 
+			    
+            </div> 
+			    <div class="item selfie col-lg-3 col-md-4 col-6 col-sm"> 
+				<div class="hovereffect rounded-md overflow-hidden">
+					<img class="img-fluid img-responsive" src="assets/img/portfolio/img2.jpg" alt="">
+						<div class="overlay"> 
+							<p>
+								<a href="assets/img/portfolio/img2.jpg" class="fancylight popup-btn info" data-fancybox-group="light">My Profile
+								<i>view</i></a>
+							</p>
+						</div>
+					</div> 
+			    
+            </div> 
+				    <div class="item lap col-lg-3 col-md-4 col-6 col-sm"> 
+				<div class="hovereffect rounded-md overflow-hidden">
+					<img class="img-fluid img-responsive" src="assets/img/portfolio/img3.jpg" alt="">
+						<div class="overlay"> 
+							<p>
+								<a href="assets/img/portfolio/img3.jpg" class="fancylight popup-btn info" data-fancybox-group="light">My Profile
+								<i>view</i></a>
+							</p>
+						</div>
+					</div> 
+			    
+            </div>
+				    <div class="item selfie col-lg-3 col-md-4 col-6 col-sm"> 
+				<div class="hovereffect rounded-md overflow-hidden">
+					<img class="img-fluid img-responsive" src="assets/img/portfolio/img4.jpg" alt="">
+						<div class="overlay"> 
+							<p>
+								<a href="assets/img/portfolio/img4.jpg" class="fancylight popup-btn info" data-fancybox-group="light">My Profile
+								<i>view</i></a>
+							</p>
+						</div>
+					</div> 
+			    
+            </div> 
+				    <div class="item lap col-lg-3 col-md-4 col-6 col-sm"> 
+				<div class="hovereffect rounded-md overflow-hidden">
+					<img class="img-fluid img-responsive" src="assets/img/portfolio/img5.jpg" alt="">
+						<div class="overlay"> 
+							<p>
+								<a href="assets/img/portfolio/img5.jpg" class="fancylight popup-btn info" data-fancybox-group="light">My Profile
+								<i>view</i></a>
+							</p>
+						</div>
+					</div> 
+			    
+            </div> 
+				    <div class="item gts col-lg-3 col-md-4 col-6 col-sm"> 
+				<div class="hovereffect rounded-md overflow-hidden">
+					<img class="img-fluid img-responsive" src="assets/img/portfolio/img6.jpg" alt="">
+						<div class="overlay"> 
+							<p>
+								<a href="assets/img/portfolio/img6.jpg" class="fancylight popup-btn info" data-fancybox-group="light">My Profile
+								<i>view</i></a>
+							</p>
+						</div>
+					</div> 
+			    
+            </div> 
+				    <div class="item gts col-lg-3 col-md-4 col-6 col-sm"> 
+				<div class="hovereffect rounded-md overflow-hidden">
+					<img class="img-fluid img-responsive" src="assets/img/portfolio/img7.jpg" alt="">
+						<div class="overlay"> 
+							<p>
+								<a href="assets/img/portfolio/img7.jpg" class="fancylight popup-btn info" data-fancybox-group="light">My Profile
+								<i>view</i></a>
+							</p>
+						</div>
+					</div> 
+			    
+            </div> 
+				    <div class="item selfie col-lg-3 col-md-4 col-6 col-sm"> 
+				<div class="hovereffect rounded-md overflow-hidden">
+					<img class="img-fluid img-responsive" src="assets/img/portfolio/img8.jpg" alt="">
+						<div class="overlay"> 
+							<p>
+								<a href="assets/img/portfolio/img8.jpg" class="fancylight popup-btn info" data-fancybox-group="light">My Profile
+								<i>view</i></a>
+							</p>
+						</div>
+					</div> 
+			    
+            </div>   
+         </div>
+      </div>
+</section>	
+	<div class="card bg-primary border-0 rounded-0 p-5">
+    <div class="container">
+        <div class="row justify-content-between align-items-center text-center text-md-left">
+            <div class="col-md-8">
+                <h5 class="mb-1 d-inline-block border-right border-sm-right-0 pr-md-4 mr-md-4">OFFER</h5>
+                <p class="mb-0 d-inline-block">50% off on Annual subscription.. grab the deal before it go!</p>
+            </div>
+            <div class="col-md-4 text-lg-right mt-md-0 mt-3">
+                <a href="#" class="btn btn-pill btn-outline-dark">Subscribe</a>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="bg-light wt-section" id="team">
+        <div class="container"> 
+		<div class="row justify-content-md-center text-center mb-lg-5 mb-4 pb-lg-5">
+            <div class="col-md-12">
+                <h2 class="h1">Our Team</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, </p>
+            </div>
+        </div>
+          <div class="row">
+            <div class="col-lg-3 col-sm-6 mb-5"> 
+              <figure data-aos="fade-up" data-aos-easing="linear" data-aos-delay="100">
+                <img class="w-100 rounded-top" src="assets/img/team/img1.jpg" alt="Image Description"> 
+                <div class="wt-box-shadow-sm bg-white text-center rounded p-4">
+                  <div class="mb-3">
+                    <h5 class="mb-1">James Rally</h5>
+                    <small class="d-block font-style-normal text-uppercase text-primary wt-letter-spacing-xs">CEO</small>
+                  </div>
+                </div> 
+              </figure> 
+            </div>
+
+            <div class="col-lg-3 col-sm-6 mb-5"> 
+              <figure data-aos="fade-up" data-aos-easing="linear" data-aos-delay="200">
+                <img class="w-100 rounded-top" src="assets/img/team/img2.jpg" alt="Image Description"> 
+                <div class="wt-box-shadow-sm bg-white text-center rounded p-4">
+                  <div class="mb-3">
+                    <h5 class="mb-1">Kristen Viller</h5>
+                    <small class="d-block font-style-normal text-uppercase text-primary wt-letter-spacing-xs">Trainer</small>
+                  </div>
+                </div> 
+              </figure> 
+            </div>
+
+            <div class="col-lg-3 col-sm-6 mb-5"> 
+              <figure data-aos="fade-up" data-aos-easing="linear" data-aos-delay="300">
+                <img class="w-100 rounded-top" src="assets/img/team/img3.jpg" alt="Image Description">
+ 
+                <div class="wt-box-shadow-sm bg-white text-center rounded p-4">
+                  <div class="mb-3">
+                    <h5 class="mb-1">Johanna Care</h5>
+                    <small class="d-block font-style-normal text-uppercase text-primary wt-letter-spacing-xs">Trainer</small>
+                  </div>
+                </div> 
+              </figure> 
+            </div>
+
+            <div class="col-lg-3 col-sm-6 mb-5"> 
+              <figure data-aos="fade-up" data-aos-easing="linear" data-aos-delay="400">
+                <img class="w-100 rounded-top" src="assets/img/team/img4.jpg" alt="Image Description"> 
+                <div class="wt-box-shadow-sm bg-white text-center rounded p-4">
+                  <div class="mb-3">
+                    <h5 class="mb-1">Bruce Willamson</h5>
+                    <small class="d-block font-style-normal text-uppercase text-primary wt-letter-spacing-xs">Trainer</small>
+                  </div>
+                </div> 
+              </figure> 
+            </div>
+          </div> 
+        </div>
+      </section>
+<div class="wt-section" id="price">
+    <div class="container">
+        <div class="row justify-content-md-center text-center mb-lg-5 mb-4 pb-lg-5">
+            <div class="col-md-12">
+                <h2 class="h1">Price & Schedule</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table custom-table table-borderless">
+                        <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Class</th>
+                            <th>Price</th>
+                            <th>Join Now</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-aos="fade-in" data-aos-easing="linear" data-aos-delay="200">
+                            <td>10:00am - 12:00am</td>
+                            <td>
+                                <h6>Rope Skipping</h6>
+                                <span class="text-muted">Indoor</span>
+                            </td>
+                            <td>
+                                <h6>$25</h6>
+                                <span class="text-muted">Monthly</span>
+                            </td>
+                            <td>
+                                <a href="#" class="btn btn-primary btn-pill">Join Now</a>
+                            </td>
+                        </tr>
+                        <tr data-aos="fade-in" data-aos-easing="linear" data-aos-delay="300">
+                            <td>12:00am - 2:00am</td>
+                            <td>
+                                <h6>Intensity </h6>
+                                <span class="text-muted">BW Training</span>
+                            </td>
+                            <td>
+                                 <h6>$25</h6>
+                                <span class="text-muted">Monthly</span>
+                            </td>
+                            <td>
+                                <a href="#" class="btn btn-primary btn-pill">Join Now</a>
+                            </td>
+                        </tr>
+                        <tr data-aos="fade-in" data-aos-easing="linear" data-aos-delay="400">
+                            <td>2:00am - 5:00am</td>
+                            <td>
+                                <h6>Yoga </h6>
+                                <span class="text-muted">On the Beach</span>
+                            </td>
+                            <td>
+                                <h6>$25</h6>
+                                <span class="text-muted">Monthly</span>
+                            </td>
+                            <td>
+                                <a href="#" class="btn btn-primary btn-pill">Join Now</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ <section class="bg-dark position-relative pt-5">
+        <div class="container">
+          <div class="row text-center text-uppercase text-white">
+            <div class="col-lg-3 col-sm-6 pb-5">
+              <h5 class="js-counter display-4 mb-1">45</h5>
+              <small class="d-block font-style-normal text-uppercase wt-letter-spacing-sm">Trainer</small>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 pb-5">
+              <h5 class="js-counter display-4 mb-1">114</h5>
+              <small class="d-block font-style-normal text-uppercase wt-letter-spacing-sm">Equipments</small>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 pb-5">
+              <h5 class="js-counter display-4 mb-1">245</h5>
+              <small class="d-block font-style-normal text-uppercase wt-letter-spacing-sm">Customers</small>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 pb-5">
+              <h5 class="js-counter display-4 mb-1">2</h5>
+              <small class="d-block font-style-normal text-uppercase wt-letter-spacing-sm">Cafeteria</small>
+            </div>
+          </div>
+        </div>
+      </section>
+<section class="wt-section">
+        <div class="container">
+		<div class="row justify-content-md-center text-center pb-lg-4 mb-lg-5 mb-4">
+          <div class="col-md-8 text-center w-md-50 mx-auto mb-0 ">
+            <h2 class="mb-md-2">Testimonials</h2>
+            <p>Maxi creative technology company providing key digital services for everyone.</p>
+          </div>
+		</div>
+		 
+          <div class="row">
+            <div class="col-lg-6 mb-7 mb-lg-0 px-lg-5" data-aos="fade-right" data-aos-easing="linear" data-aos-delay="200">
+              <!-- Testimonial -->
+              <blockquote class="wt-blockquote-v2 rounded mb-5">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.</blockquote>
+              <div class="media wt-font-size-90">
+                <img class="d-flex align-self-center rounded-circle wt-blockquote-v2__image wt-box-shadow-lg mx-3 mt-2" src="assets/img/ava/img2.jpg" alt="Image description">
+                <div class="media-body align-self-center">
+                  <strong class="d-block">Kristen Morres</strong>
+                  <span class="wt-font-size-75 text-dark">XL Director</span>
+                </div>
+              </div>
+              <!-- End Testimonial -->
+            </div>
+
+            <div class="col-lg-6 px-lg-5" data-aos="fade-left" data-aos-easing="linear" data-aos-delay="400">
+              <!-- Testimonial -->
+              <blockquote class="wt-blockquote-v2 rounded mb-5">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.</blockquote>
+              <div class="media wt-font-size-90">
+                <img class="d-flex align-self-center rounded-circle wt-blockquote-v2__image wt-box-shadow-lg mx-3 mt-2" src="assets/img/ava/img3.jpg" alt="Image description">
+                <div class="media-body align-self-center">
+                  <strong class="d-block">James Vintel</strong>
+                  <span class="wt-font-size-75 text-dark">VNT Manager</span>
+                </div>
+              </div>
+              <!-- End Testimonial -->
+            </div>
+          </div>
+        </div>
+      </section>	  
+<section class="wt-section bg-light" id="contacts">
+    <div class="container">
+	<div class="row justify-content-md-center text-center pb-lg-4 mb-lg-5 mb-4">
+          <div class="col-md-8 text-center w-md-50 mx-auto mb-0 ">
+            <h2 class="mb-md-2">Let us know</h2>
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
+          </div>
+		</div>
+        <div class="row justify-content-md-center text-center mg-5 pb-5">
+            <div class="col-md-8">
+                     <div class="form"> 
+		  
+		   <!-- Form itself -->
+				  <form name="sentMessage" class="well" id="contactForm"  novalidate data-aos="fade-up" data-aos-easing="linear" data-aos-delay="200"> 
+				 <div class="control-group">
+						   <div class="form-group mb-4">
+					<input type="text" class="form-control form-control-lg" 
+						   placeholder="Full Name" id="name" required
+							   data-validation-required-message="Please enter your name" />
+					  <p class="help-block"></p>
+
+				   </div>
+					 </div> 	
+						<div class="form-group mb-4">
+						  <div class="controls">
+					<input type="email" class="form-control form-control-lg" placeholder="Email" 
+									id="email" required
+							   data-validation-required-message="Please enter your email" />
+				</div>
+				</div> 	
+					  
+					   <div class="form-group mb-4">
+						 <div class="controls">
+						 <textarea rows="10" cols="100" class="form-control form-control-lg" 
+							   placeholder="Message" id="message" required
+					   data-validation-required-message="Please enter your message" minlength="5" 
+							   data-validation-minlength-message="Min 5 characters" 
+								maxlength="999" style="resize:none"></textarea>
+				</div>
+					   </div> 		 
+				 <div id="success"> </div> <!-- For success/fail messages -->
+			 <div class="text-center">
+              <button class="btn btn-lg btn-primary py-3 mt-3 px-4 btn-pill" type="submit">Send Your Message</button>
+            </div> 
+				  </form>
+        </div>
+ 
+            </div>
+        </div>
+		 <div class="row">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11880.492291371422!2d12.4922309!3d41.8902102!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x28f1c82e908503c4!2sColosseo!5e0!3m2!1sit!2sit!4v1524815927977" width="100%" height="320" frameborder="0" style="border:0" allowfullscreen></iframe>
+ </div>
+		
+    </div>
+</section> 
+      <!-- End Clients Section -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 text-center text-md-left mb-3 mb-md-0">
+            <small class="text-white"><a class="text-white" href="https://webthemez.com/free-bootstrap-templates/">Bootstrap Theme</a> by WebThemez. <br/>&copy; All Rights Reserved</small>
+          </div>
+
+          <div class="col-md-4 align-self-center">
+            <ul class="list-inline text-center text-md-right mb-0">
+              <li class="list-inline-item mx-2" data-toggle="tooltip" data-placement="top" title="Facebook">
+                <a class="text-white" target="_blank" href="https://www.facebook.com/Maxi">
+                  <i class="fab fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item mx-2" data-toggle="tooltip" data-placement="top" title="Instagram">
+                <a class="text-white" target="_blank" href="https://www.instagram.com/Maxi">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </li>
+              <li class="list-inline-item mx-2" data-toggle="tooltip" data-placement="top" title="Twitter">
+                <a class="text-white" target="_blank" href="https://twitter.com/Maxi">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item mx-2" data-toggle="tooltip" data-placement="top" title="Dribbble">
+                <a class="text-white" target="_blank" href="https://dribbble.com/Maxi">
+                  <i class="fab fa-dribbble"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
   
-</div>
+    <!-- JS Script Files --> 
+    <script src="assets/vendors/jquery.min.js"></script>
+    <script src="assets/vendors/jquery.migrate.min.js"></script>
+    <script src="assets/vendors/popper.min.js"></script>
+    <script src="assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/vendors/jquery-easing/jquery.easing.min.js"></script>
 
-<div id="projects" class="wrapper row">
-  <main class="hoc container clear"> 
-    <!-- main body -->
-    
-    <div class="group excerpt">
-      <h6 class="label">Projects</h6>
-      <p>Here's a list of projects I've worked on as a part of a third-party organization called <a href="https://github.com/F-S-C" target="_blank">F.S.C</a>.</p>
-      <article class="one_quarter first"><a class="imgover btmspace-30" target="_blank" href="#"><img src="images/demo/findirty.png" alt=""></a>
-        <h6 class="card-text">Findirty [Thesis]</h6>
-        <p>A system capable of detecting UX errors in a website.</p>
-        <p>
-          <span class="badge badge-pill text-primary border border-primary ml-1">HTML</span>
-          <span class="badge badge-pill text-primary border border-primary ml-1">CSS</span>
-          <span class="badge badge-pill text-primary border border-primary ml-1">SASS</span>
-          <span class="badge badge-pill text-primary border border-primary ml-1">JS</span>
-          <span class="badge badge-pill text-primary border border-primary ml-1">Node</span>
-        </p>
-      </article>
-      <article class="one_quarter"><a class="imgover btmspace-30" target="_blank" href="https://github.com/F-S-C/Emotionally"><img src="images/demo/Emotionally.png" alt=""></a>
-        <h6 class="card-text">Emotionally</h6>
-        <p>A system capable of detecting and analyzing emotions thanks to Affectiva's cloud-based APIs.</p>
-        <p>
-          <span class="badge badge-pill text-primary border border-primary ml-1">HTML</span>
-          <span class="badge badge-pill text-primary border border-primary ml-1">CSS</span>
-          <span class="badge badge-pill text-primary border border-primary ml-1">JS</span>
-          <span class="badge badge-pill text-primary border border-primary ml-1">Laravel</span>
-          <span class="badge badge-pill text-primary border border-primary ml-1">Bootstrap</span>
-        </p>
-      </article>
-      <article class="one_quarter"><a class="imgover btmspace-30" target="_blank" href="https://github.com/F-S-C/StrumentalMente"><img src="images/demo/Strumentalmente.png" alt=""></a>
-        <h6 class="card-text">StrumentalMente</h6>
-        <p>A multimedia application that was designed following the Alessi & Trollip Model.</p>
-        <p>
-          <span class="badge badge-pill text-primary border border-primary ml-1">HTML</span>
-          <span class="badge badge-pill text-primary border border-primary ml-1">CSS</span>
-          <span class="badge badge-pill text-primary border border-primary ml-1">SASS</span>
-          <span class="badge badge-pill text-primary border border-primary ml-1">JS</span>
-          <span class="badge badge-pill text-primary border border-primary ml-1">Electron</span>
-        </p>
-      </article>
-      <article class="one_quarter"><a class="imgover btmspace-30" target="_blank" href="https://github.com/F-S-C/Cicerone"><img src="images/demo/Cicerone.png" alt=""></a>
-        <h6 class="card-text">Cicerone</h6>
-        <p>A system created for a University exam using the SCRUM Agile process.</p>
-        <p>
-          <span class="badge badge-pill text-primary border border-primary ml-1">Android</span>
-          <span class="badge badge-pill text-primary border border-primary ml-1">PHP</span>
-        </p>
-      </article>
-    </div>
-    
-    <!-- / main body -->
-    <div class="clear"></div>
-  </main>
-</div>
+    <!-- Components Vendor  --> 
+    <script src="assets/vendors/slick-carousel/slick.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.js"></script>
+    <script src="assets/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="assets/vendors/counters/waypoint.min.js"></script>
+    <script src="assets/vendors/counters/counterup.min.js"></script>
+ 
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/scrolling-nav.js"></script>
+    <!--Plugin Initialize-->
+    <script src="assets/js/global.js"></script>
 
-
-
-
-<div class="wrapper row2 bgded">
-  <section class="hoc cta clear"> 
-    
-    <div id="contactme" class="sectiontitle">
-      <h6 class="heading">Contact me</h6>
-      <p>For any information, use the form below to contact me via email.</p>
-    </div>
-    <form method="post" action="mailto:graziano.montanaro98@gmail.com">
-      <fieldset>
-        <legend>Newsletter:</legend>
-        <input class="btmspace-15"  type="text" value="" placeholder="First Name">
-        <input class="btmspace-15" type="text" value="" placeholder="Last Name">
-        <input class="btmspace-15" type="text" value="" placeholder="Your message">
-        <button type="submit" value="submit">Submit</button>
-      </fieldset>
-    </form>
-    
-  </section>
-</div>
-
-
-
-
-<div class="wrapper row5">
-  <div id="copyright" class="hoc clear"> 
-    
-    <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
-    <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
-    
-  </div>
-</div>
-
-
-
-<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
-<!-- JAVASCRIPTS -->
-<script src="layout/scripts/jquery.min.js"></script>
-<script src="layout/scripts/jquery.backtotop.js"></script>
-<script src="layout/scripts/jquery.mobilemenu.js"></script>
-</body>
+    <!-- Theme Components and Settings --> 
+    <script src="assets/vendors/carousel.js"></script>
+    <script src="assets/vendors/counters.js"></script>
+	
+    <!-- END JAVASCRIPTS -->
+	
+  </body>
+  <!-- End Body -->
 </html>
