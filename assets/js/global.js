@@ -64,6 +64,7 @@ AOS.init();
          	return  false;
          });
          $(document).ready(function() {
+           $('#all-filter').click();
          var popup_btn = $('.popup-btn');
          popup_btn.magnificPopup({
          type : 'image',
