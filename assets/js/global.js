@@ -65,7 +65,7 @@
   });
   $(document).ready(function () {
     $('#all-filter').click();
-    $('#see-more').show();
+    $('#see-more').css('border','2px solid');
     setLastUpdate();
     var popup_btn = $('.popup-btn');
     popup_btn.magnificPopup({
