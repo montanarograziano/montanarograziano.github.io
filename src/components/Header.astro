@@ -1,0 +1,51 @@
+---
+import presentation from "@/data/presentation";
+import removeTrailingSlash from "@/utils/removeTrailingSlash";
+import { getCollection } from "astro:content";
+
+const pathname = removeTrailingSlash(Astro.url.pathname);
+const posts = await getCollection("posts");
+const { "aria-label": ariaLabel, id, text } = Astro.props;
+
+const href = `#${id}`;
+---
+
+<header class="z-40 flex w-full flex-col gap-2 md:flex-row md:justify-between">
+  <a href=`/` class="hover:text-neutral-100"
+    >{presentation.fullName}</a
+  >
+
+  <nav role="navigation">
+    <ul role="list" class="flex flex-row gap-2">
+      <li>
+        <a
+          href="/"
+          class:list={{
+            ["hover:text-neutral-100"]: true,
+            ["text-neutral-100"]: pathname === "/",
+          }}>Home</a
+        >
+      </li>
+      <li>/</li>
+      <li>
+        <a
+          href={`/posts/${posts[0].slug}`}
+          class:list={{
+            ["hover:text-neutral-100"]: true,
+            ["text-neutral-100"]: pathname === `/posts/${posts[0].slug}`,
+          }}>About</a
+        >
+      </li>
+      <li>/</li>
+      <li>
+        <a
+          href="/#projects"
+          class:list={{
+            ["hover:text-neutral-100"]: true,
+            ["text-neutral-100"]: pathname === `/${href}}`,
+          }}>Projects</a
+        >
+      </li>
+    </ul>
+  </nav>
+</header>

@@ -1,0 +1,27 @@
+---
+import { Icon } from "astro-icon";
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"a"> & {
+  label: string;
+  isUnderline?: boolean;
+  packName: string;
+};
+
+const { label, isUnderline, packName, ...props } = Astro.props;
+---
+
+<div style="width: 5%;">
+  <a
+    href={props.href}
+    class:list={{
+      ["hover:text-neutral-100 cursor-pointer"]: true,
+      ["underline decoration-dashed underline-offset-8"]: isUnderline,
+    }}
+    target="_blank"
+  >
+    <Icon name={packName} set:text={label} />
+
+    <span class="sr-only">{label} link</span>
+  </a>
+</div>
