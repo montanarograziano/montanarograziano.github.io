@@ -1,0 +1,16 @@
+---
+import presentation from "@/data/presentation";
+import IconLink from "./shared/IconLink.astro";
+---
+
+<div class="flex flex-row gap-2">
+  {
+    presentation.socials.map((social, index) => (
+      <IconLink
+        href={social.link}
+        label={social.label}
+        packName={social.packName}
+      />
+    ))
+  }
+</div>
