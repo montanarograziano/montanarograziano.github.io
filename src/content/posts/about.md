@@ -21,10 +21,11 @@ Main interests: Machine Learning, Deep Learning, Human-Computer Interaction and 
     Development of end-to-end Machine Learning pipelines. R&D in Time Series Forecasting and Computer Vision domains.  
 - **Early Stage Researcher** (Sep 2022- Jan 2023), [University of Bari Aldo Moro](https:www.uniba.it) (Bari, Italy).
 
-    Designed and developed the mobile application for the [eGLU-Box] platform using Flutter. Created REST APIs to integrate the mobile application into the main web version using Laravel.
+    Designed and developed the mobile application for the [eGLU-Box](https://atc.mise.gov.it/index.php/eventi/15-tecnologie-comunicazioni/1031-piattaforma-eglu-box-pa) platform using Flutter. Created REST APIs to integrate the mobile application into the main web version using Laravel.
 
 - **Early Stage Researcher** (Mar 2021- Jan 2022), [University of Bari Aldo Moro](https:www.uniba.it) (Bari, Italy).
-    
+
+    Worked on the ISO/IEC 25010 certified web platform [eGLU-Box](https://atc.mise.gov.it/index.php/eventi/15-tecnologie-comunicazioni/1031-piattaforma-eglu-box-pa) for managing automated usability tests for PA.
     Improved existing visualization techniques (Arc, Sankey and Graph Diagrams) to support the evaluation of the usability test conducted using the platform.
     Integrated a chatbost assistant powered by Dialogflow to assist the user during the usability test.
 
