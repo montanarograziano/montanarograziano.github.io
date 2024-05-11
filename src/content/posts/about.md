@@ -17,8 +17,8 @@ Main interests: Machine Learning, Deep Learning, Human-Computer Interaction and 
 ## Experience
 
 - **Machine Learning Engineer** (Feb 2023 - Present), [Tuidi](https:www.tuidi.it) (Putignano, Italy).
-    
-    Development of end-to-end Machine Learning pipelines. R&D in Time Series Forecasting and Computer Vision domains.  
+
+    Development of end-to-end Machine Learning pipelines. R&D in Time Series Forecasting and Computer Vision domains.
 - **Early Stage Researcher** (Sep 2022- Jan 2023), [University of Bari Aldo Moro](https:www.uniba.it) (Bari, Italy).
 
     Designed and developed the mobile application for the [eGLU-Box](https://atc.mise.gov.it/index.php/eventi/15-tecnologie-comunicazioni/1031-piattaforma-eglu-box-pa) platform using Flutter. Created REST APIs to integrate the mobile application into the main web version using Laravel.
@@ -32,3 +32,4 @@ Main interests: Machine Learning, Deep Learning, Human-Computer Interaction and 
 
 ## Publications
 - Giovanna Castellano, Andrea Esposito, Marco Mirizio,  **Graziano Montanaro**, and Gennaro Vessio. 2021. _Detection of Dementia Through 3D Convolutional Neural Networks Based on Amyloid PET._ In 2021 IEEE Symposium Series on Computational Intelligence (SSCI 2021), IEEE. DOI: [10.1109/SSCI50451.2021.9660102](https://ieeexplore.ieee.org/document/9660102/)
+- - Giovanna Castellano, Andrea Esposito, Eufemia Lella,  **Graziano Montanaro**, and Gennaro Vessio. 2024. _Automated detection of Alzheimer’s disease: a multi-modal approach with 3D MRI and amyloid PET_ In 2024 at Scientific Reports (Sci Rep 14), IEEE. DOI: [https://doi.org/10.1038/s41598-024-56001-9](https://www.nature.com/articles/s41598-024-56001-9)
