@@ -19,11 +19,11 @@ const presentation: Presentation = {
   title: "Hi, I’m Graziano 👋",
   picture: "../assets/images/profile.jpg",
   description:
-    "I'm a passionate *Python developer* and *Machine Learning Engineer* from Italy. I'm always eager to learn and try new things. I'm a supporter of the FOSS philosophy and I'm willing to contribute to interesting projects in the open source community. Currently, I'm working as a Machine Learning Engineer at *<a title='Tuidi', href='https://www.tuidi.ai/' target='_blank'>Tuidi</a>*.",
+    "I'm a passionate *Python developer* and *Machine Learning Engineer* from Italy. I'm always eager to learn and try new things. I'm a supporter of the FOSS philosophy and I'm willing to contribute to interesting projects in the open source community. Currently, I'm working as a Machine Learning Engineer at *<a title='Intella', href='https://www.intella.tech/' target='_blank'>Intella</a>*.",
   socials: [
     {
       label: "LinkedIn",
-      link: "https://www.linkedin.com/in/graziano-montanaro-05255317a/?original_referer=https%3A%2F%2Fgithub.com%2F",
+      link: "https://www.linkedin.com/in/graziano-montanaro/",
       packName: "mdi:linkedin",
     },
     {

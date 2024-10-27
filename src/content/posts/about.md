@@ -16,9 +16,13 @@ Main interests: Machine Learning, Deep Learning, Human-Computer Interaction and 
 
 ## Experience
 
-- **Machine Learning Engineer** (Feb 2023 - Present), [Tuidi](https:www.tuidi.it) (Putignano, Italy).
+- **Machine Learning Engineer** (Sept 2024 - Present), [Intella](https://www.intella.tech) (Milan, Italy)
 
-    Development of end-to-end Machine Learning pipelines. R&D in Time Series Forecasting and Computer Vision domains.
+    Focus on improving the MLOps maturity of the tooling. Set up infrastructure and orchestration for ML models and tools.
+
+- **Machine Learning Engineer** (Feb 2023 - Aug 2024), [Tuidi](https://www.tuidi.ai) (Putignano, Italy).
+
+    Development of end-to-end Machine Learning pipelines. From raw data ingestion to feature engineering, model training, serving and monitoring. Responsible of MLOps within the org.
 - **Early Stage Researcher** (Sep 2022- Jan 2023), [University of Bari Aldo Moro](https:www.uniba.it) (Bari, Italy).
 
     Designed and developed the mobile application for the [eGLU-Box](https://atc.mise.gov.it/index.php/eventi/15-tecnologie-comunicazioni/1031-piattaforma-eglu-box-pa) platform using Flutter. Created REST APIs to integrate the mobile application into the main web version using Laravel.
