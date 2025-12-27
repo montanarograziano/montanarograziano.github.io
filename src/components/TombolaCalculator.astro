@@ -23,7 +23,7 @@
       />
 
       <label for="cartellaPrice" class="block text-neutral-100 mb-2 font-medium mt-4">
-        Cartella Price (€)
+        Card Price (€)
       </label>
       <input
         type="number"
@@ -146,17 +146,17 @@
     }
 
     // Define minimum requirements
-    // Minimum 7 cartelle: 6 for tombolone + at least 1 for another player
+    // Minimum 7 cards: 6 for tombolone + at least 1 for another player
     const minAmbo = cartellaPrice > 0 ? roundToDivisibleByTwo(cartellaPrice) : 0;
     const minTombola = cartellaPrice > 0 ? roundToDivisibleByTwo(cartellaPrice * 6) : 0;
-    const minimumRequired = cartellaPrice > 0 ? cartellaPrice * 7 : 0; // 7 cartelle minimum
+    const minimumRequired = cartellaPrice > 0 ? cartellaPrice * 7 : 0; // 7 cards minimum
 
     // Check if prize pool is sufficient
     const warningSection = document.getElementById('warningSection') as HTMLElement;
     const warningMessage = document.getElementById('warningMessage') as HTMLElement;
 
     if (cartellaPrice > 0 && prizePool < minimumRequired) {
-      warningMessage.textContent = `Prize pool is too small! With a cartella price of €${formatWithComma(cartellaPrice)}, you need at least €${formatWithComma(minimumRequired)} to cover minimum requirements (7 cartelle: 6 for tombolone + 1 for at least one player).`;
+      warningMessage.textContent = `Prize pool is too small! With a card price of €${formatWithComma(cartellaPrice)}, you need at least €${formatWithComma(minimumRequired)} to cover minimum requirements (7 cards: 6 for tombolone + 1 for at least one player).`;
       warningSection.classList.remove('hidden');
       return; // Prevent calculation
     } else {
@@ -184,7 +184,7 @@
       terna = (remaining * 3) / totalWeight;
       ambo += (remaining * 2) / totalWeight;
 
-      // Minimum gap is 2x cartella price
+      // Minimum gap is 2x card price
       const minGap = cartellaPrice * 2;
 
       // Ensure strict ordering before rounding
