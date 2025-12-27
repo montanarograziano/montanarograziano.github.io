@@ -1,0 +1,329 @@
+---
+// Tombola Prize Calculator Component
+---
+
+<div class="tombola-calculator w-full max-w-2xl mx-auto">
+  <div class="calculator-container bg-neutral-800 rounded-lg p-6 shadow-lg">
+    <h2 class="text-2xl text-neutral-100 mb-4">Tombola Prize Calculator</h2>
+    <p class="text-neutral-300 mb-6 text-sm">
+      Enter the total prize pool and automatically calculate prize distribution.
+    </p>
+
+    <div class="input-section mb-6">
+      <label for="prizePool" class="block text-neutral-100 mb-2 font-medium">
+        Total Prize Pool (€)
+      </label>
+      <input
+        type="number"
+        id="prizePool"
+        step="0.01"
+        min="0"
+        placeholder="100.00"
+        class="w-full px-4 py-2 bg-neutral-700 text-neutral-100 rounded border border-neutral-600 focus:border-neutral-400 focus:outline-none"
+      />
+
+      <label for="cartellaPrice" class="block text-neutral-100 mb-2 font-medium mt-4">
+        Cartella Price (€)
+      </label>
+      <input
+        type="number"
+        id="cartellaPrice"
+        step="0.01"
+        min="0"
+        placeholder="2.00"
+        class="w-full px-4 py-2 bg-neutral-700 text-neutral-100 rounded border border-neutral-600 focus:border-neutral-400 focus:outline-none"
+      />
+      <p class="text-neutral-400 text-xs mt-1">
+        The cost of one playing card. Used to ensure fair minimum prizes.
+      </p>
+
+      <button
+        id="calculateBtn"
+        class="mt-4 w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded font-medium transition-colors"
+      >
+        Calculate Prizes
+      </button>
+    </div>
+
+    <div id="warningSection" class="warning-section bg-amber-900/30 border border-amber-600 rounded p-4 mb-4 hidden">
+      <span class="text-amber-400 text-sm font-medium">⚠️ Warning</span>
+      <p class="text-amber-200 text-xs mt-1" id="warningMessage"></p>
+    </div>
+
+    <div id="resultsSection" class="results-section hidden">
+      <h3 class="text-xl text-neutral-100 mb-4">Prize Distribution</h3>
+      <div class="prizes-grid grid gap-3 mb-4">
+        <div class="prize-item bg-neutral-700 rounded p-4 border-l-4 border-yellow-500">
+          <div class="flex justify-between items-start">
+            <span class="prize-name text-neutral-300 text-sm">🏆 Tombola</span>
+            <span class="text-xs text-neutral-500" id="tombolaMin"></span>
+          </div>
+          <span class="prize-value text-neutral-100 text-xl font-bold block mt-1" id="tombolaPrize">€0.00</span>
+        </div>
+        <div class="prize-item bg-neutral-700 rounded p-4 border-l-4 border-blue-500">
+          <span class="prize-name text-neutral-300 text-sm">🎯 Cinquina</span>
+          <span class="prize-value text-neutral-100 text-xl font-bold block mt-1" id="cinquinaPrize">€0.00</span>
+        </div>
+        <div class="prize-item bg-neutral-700 rounded p-4 border-l-4 border-green-500">
+          <span class="prize-name text-neutral-300 text-sm">🎲 Quaterna</span>
+          <span class="prize-value text-neutral-100 text-xl font-bold block mt-1" id="quaternaPrize">€0.00</span>
+        </div>
+        <div class="prize-item bg-neutral-700 rounded p-4 border-l-4 border-purple-500">
+          <span class="prize-name text-neutral-300 text-sm">🎪 Terna</span>
+          <span class="prize-value text-neutral-100 text-xl font-bold block mt-1" id="ternaPrize">€0.00</span>
+        </div>
+        <div class="prize-item bg-neutral-700 rounded p-4 border-l-4 border-orange-500">
+          <div class="flex justify-between items-start">
+            <span class="prize-name text-neutral-300 text-sm">🎁 Ambo</span>
+            <span class="text-xs text-neutral-500" id="amboMin"></span>
+          </div>
+          <span class="prize-value text-neutral-100 text-xl font-bold block mt-1" id="amboPrize">€0.00</span>
+        </div>
+      </div>
+
+      <div id="remainderSection" class="remainder-section bg-neutral-700 rounded p-4 mt-4 hidden">
+        <span class="text-neutral-300 text-sm">💰 Remainder (for consolation prizes or rounding)</span>
+        <span class="text-neutral-100 text-lg font-bold block mt-1" id="remainderValue">€0.00</span>
+      </div>
+
+      <div class="total-check bg-neutral-700 rounded p-4 mt-4">
+        <span class="text-neutral-300 text-sm">✅ Total Distributed</span>
+        <span class="text-neutral-100 text-lg font-bold block mt-1" id="totalDistributed">€0.00</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function formatWithComma(value: number): string {
+    return value.toFixed(2).replace('.', ',');
+  }
+
+  function parseInput(value: string): number {
+    // Replace comma with dot for parsing
+    return parseFloat(value.replace(',', '.'));
+  }
+
+  function roundToDivisibleByTwo(amount: number): number {
+    // Round to nearest 0.20 euro (20 cents) so it's divisible by 2
+    // This ensures when split between 2 winners, each gets a valid 10 cent increment
+    return Math.round(amount * 5) / 5;
+  }
+
+  function distributeRemainder(prizes: number[], remainder: number): number[] {
+    // Distribute remainder proportionally to prizes
+    const total = prizes.reduce((sum, prize) => sum + prize, 0);
+    const boostedPrizes = prizes.map(prize => {
+      const proportion = prize / total;
+      const boost = remainder * proportion;
+      return prize + boost;
+    });
+
+    // Round each boosted prize to be divisible by 2
+    const roundedPrizes = boostedPrizes.map(prize => roundToDivisibleByTwo(prize));
+
+    // Calculate any final remainder after rounding
+    const distributedTotal = roundedPrizes.reduce((sum, prize) => sum + prize, 0);
+    const finalRemainder = Math.round((prizes.reduce((sum, prize) => sum + prize, 0) + remainder - distributedTotal) * 100) / 100;
+
+    // Add final remainder to the biggest prize (Tombola)
+    if (Math.abs(finalRemainder) >= 0.20) {
+      roundedPrizes[0] = roundToDivisibleByTwo(roundedPrizes[0] + finalRemainder);
+    }
+
+    return roundedPrizes;
+  }
+
+  function calculatePrizes() {
+    const prizePoolInput = document.getElementById('prizePool') as HTMLInputElement;
+    const cartellaPriceInput = document.getElementById('cartellaPrice') as HTMLInputElement;
+    const prizePool = parseInput(prizePoolInput.value);
+    const cartellaPrice = parseInput(cartellaPriceInput.value) || 0;
+
+    if (isNaN(prizePool) || prizePool <= 0) {
+      alert('Please enter a valid prize pool!');
+      return;
+    }
+
+    // Define minimum requirements
+    // Minimum 7 cartelle: 6 for tombolone + at least 1 for another player
+    const minAmbo = cartellaPrice > 0 ? roundToDivisibleByTwo(cartellaPrice) : 0;
+    const minTombola = cartellaPrice > 0 ? roundToDivisibleByTwo(cartellaPrice * 6) : 0;
+    const minimumRequired = cartellaPrice > 0 ? cartellaPrice * 7 : 0; // 7 cartelle minimum
+
+    // Check if prize pool is sufficient
+    const warningSection = document.getElementById('warningSection') as HTMLElement;
+    const warningMessage = document.getElementById('warningMessage') as HTMLElement;
+
+    if (cartellaPrice > 0 && prizePool < minimumRequired) {
+      warningMessage.textContent = `Prize pool is too small! With a cartella price of €${formatWithComma(cartellaPrice)}, you need at least €${formatWithComma(minimumRequired)} to cover minimum requirements (7 cartelle: 6 for tombolone + 1 for at least one player).`;
+      warningSection.classList.remove('hidden');
+      return; // Prevent calculation
+    } else {
+      warningSection.classList.add('hidden');
+    }
+
+    let tombola: number, cinquina: number, quaterna: number, terna: number, ambo: number;
+
+    if (cartellaPrice > 0 && minAmbo > 0 && minTombola > 0) {
+      // Smart distribution with constraints
+      ambo = minAmbo;
+      tombola = minTombola;
+
+      // Remaining pool after minimums
+      const remaining = prizePool - tombola - ambo;
+
+      // Use more balanced weighted distribution
+      // Distribution weights: 10:7:5:3:2 (Tombola:Cinquina:Quaterna:Terna:Ambo)
+      // This creates more even spacing between prizes
+      const totalWeight = 10 + 7 + 5 + 3 + 2;
+
+      tombola += (remaining * 10) / totalWeight;
+      cinquina = (remaining * 7) / totalWeight;
+      quaterna = (remaining * 5) / totalWeight;
+      terna = (remaining * 3) / totalWeight;
+      ambo += (remaining * 2) / totalWeight;
+
+      // Minimum gap is 2x cartella price
+      const minGap = cartellaPrice * 2;
+
+      // Ensure strict ordering before rounding
+      if (terna <= ambo + minGap) {
+        terna = ambo + minGap;
+      }
+      if (quaterna <= terna + minGap) {
+        quaterna = terna + minGap;
+      }
+      if (cinquina <= quaterna + minGap) {
+        cinquina = quaterna + minGap;
+      }
+      if (tombola <= cinquina + minGap) {
+        tombola = cinquina + minGap;
+      }
+
+      // Now round each prize
+      tombola = roundToDivisibleByTwo(tombola);
+      cinquina = roundToDivisibleByTwo(cinquina);
+      quaterna = roundToDivisibleByTwo(quaterna);
+      terna = roundToDivisibleByTwo(terna);
+      ambo = roundToDivisibleByTwo(ambo);
+
+      // Final check after rounding - if still equal, force gap
+      if (terna <= ambo) {
+        terna = roundToDivisibleByTwo(ambo + minGap);
+      }
+      if (quaterna <= terna) {
+        quaterna = roundToDivisibleByTwo(terna + minGap);
+      }
+      if (cinquina <= quaterna) {
+        cinquina = roundToDivisibleByTwo(quaterna + minGap);
+      }
+      if (tombola <= cinquina) {
+        tombola = roundToDivisibleByTwo(cinquina + minGap);
+      }
+    } else {
+      // Traditional halving method when no cartella price is set
+      tombola = prizePool / 2;
+      cinquina = tombola / 2;
+      quaterna = cinquina / 2;
+      terna = quaterna / 2;
+      ambo = terna / 2;
+
+      // Round each prize
+      tombola = roundToDivisibleByTwo(tombola);
+      cinquina = roundToDivisibleByTwo(cinquina);
+      quaterna = roundToDivisibleByTwo(quaterna);
+      terna = roundToDivisibleByTwo(terna);
+      ambo = roundToDivisibleByTwo(ambo);
+    }
+
+    // Calculate remainder and distribute it
+    let totalDistributed = tombola + cinquina + quaterna + terna + ambo;
+    let remainder = prizePool - totalDistributed;
+
+    // Distribute remainder to boost prizes
+    if (Math.abs(remainder) > 0.05) {
+      const prizes = [tombola, cinquina, quaterna, terna, ambo];
+      const boostedPrizes = distributeRemainder(prizes, remainder);
+
+      tombola = boostedPrizes[0];
+      cinquina = boostedPrizes[1];
+      quaterna = boostedPrizes[2];
+      terna = boostedPrizes[3];
+      ambo = boostedPrizes[4];
+
+      totalDistributed = tombola + cinquina + quaterna + terna + ambo;
+    }
+
+    // Update UI with comma separator
+    (document.getElementById('tombolaPrize') as HTMLElement).textContent = `€${formatWithComma(tombola)}`;
+    (document.getElementById('cinquinaPrize') as HTMLElement).textContent = `€${formatWithComma(cinquina)}`;
+    (document.getElementById('quaternaPrize') as HTMLElement).textContent = `€${formatWithComma(quaterna)}`;
+    (document.getElementById('ternaPrize') as HTMLElement).textContent = `€${formatWithComma(terna)}`;
+    (document.getElementById('amboPrize') as HTMLElement).textContent = `€${formatWithComma(ambo)}`;
+    (document.getElementById('totalDistributed') as HTMLElement).textContent = `€${formatWithComma(totalDistributed)}`;
+
+    // Show minimum requirements if cartella price is set
+    if (cartellaPrice > 0) {
+      (document.getElementById('tombolaMin') as HTMLElement).textContent = `min: €${formatWithComma(minTombola)}`;
+      (document.getElementById('amboMin') as HTMLElement).textContent = `min: €${formatWithComma(minAmbo)}`;
+    } else {
+      (document.getElementById('tombolaMin') as HTMLElement).textContent = '';
+      (document.getElementById('amboMin') as HTMLElement).textContent = '';
+    }
+
+    // Hide remainder section since we distribute everything
+    const remainderSection = document.getElementById('remainderSection') as HTMLElement;
+    remainderSection.classList.add('hidden');
+
+    // Show results section
+    (document.getElementById('resultsSection') as HTMLElement).classList.remove('hidden');
+  }
+
+  // Add event listener
+  document.getElementById('calculateBtn')?.addEventListener('click', calculatePrizes);
+
+  // Allow Enter key to trigger calculation
+  document.getElementById('prizePool')?.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      calculatePrizes();
+    }
+  });
+
+  document.getElementById('cartellaPrice')?.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      calculatePrizes();
+    }
+  });
+</script>
+
+<style>
+  .tombola-calculator {
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  .prizes-grid {
+    animation: fadeIn 0.3s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+</style>

@@ -42,6 +42,16 @@ const { "aria-label": ariaLabel, id, text } = Astro.props;
           }}>Projects</a
         >
       </li>
+      <li>/</li>
+      <li>
+        <a
+          href="/tombola"
+          class:list={{
+            ["hover:text-neutral-100"]: true,
+            ["text-neutral-100"]: pathname === `/tombola`,
+          }}>Tombola</a
+        >
+      </li>
     </ul>
   </nav>
 </header>

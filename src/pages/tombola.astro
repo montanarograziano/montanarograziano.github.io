@@ -1,0 +1,59 @@
+---
+import TombolaCalculator from "@/components/TombolaCalculator.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout>
+  <main class="flex flex-col gap-8">
+    <article class="flex flex-col gap-4">
+      <h1 class="text-3xl text-neutral-100">Tombola Calculator</h1>
+      <p class="text-neutral-300 max-w-[70ch] leading-relaxed">
+        <strong>Tombola</strong> is a traditional Italian board game, very popular
+        during the Christmas holidays. This calculator helps you distribute the prize pool
+        fairly among various prizes following the traditional progressive halving method.
+      </p>
+
+      <div class="bg-neutral-800 rounded-lg p-4 max-w-[70ch]">
+        <h2 class="text-lg text-neutral-100 mb-2">How it works:</h2>
+        <ul class="text-neutral-300 text-sm space-y-2 list-disc list-inside">
+          <li><strong>Tombola:</strong> The biggest prize, minimum 6 cartelle (covers the tombolone's buy-in)</li>
+          <li><strong>Cinquina:</strong> Five numbers in the same row</li>
+          <li><strong>Quaterna:</strong> Four numbers in the same row</li>
+          <li><strong>Terna:</strong> Three numbers in the same row</li>
+          <li><strong>Ambo:</strong> Two numbers in the same row, minimum 1 cartella (covers the player's buy-in)</li>
+        </ul>
+        <p class="text-neutral-400 text-xs mt-3">
+          A <em>cartella</em> is the playing card. The <em>tombolone</em> (number caller) traditionally must buy 6 cartelle.
+        </p>
+      </div>
+    </article>
+
+    <article>
+      <TombolaCalculator />
+    </article>
+
+    <article class="flex flex-col gap-4 max-w-[70ch]">
+      <h2 class="text-xl text-neutral-100">Important Notes</h2>
+      <p class="text-neutral-300 text-sm leading-relaxed">
+        <strong>Smart Distribution:</strong> When you set a cartella price, the calculator requires a minimum
+        prize pool to cover 7 cartelle (6 for tombolone + 1 for at least one player). It ensures Ambo winners
+        recover at least their entry cost and Tombola winners cover the tombolone's buy-in. The remaining
+        prize pool is distributed with weighted proportions ensuring each prize is progressively larger.
+      </p>
+      <p class="text-neutral-300 text-sm leading-relaxed">
+        <strong>Divisibility:</strong> All prizes are rounded to multiples of 20 cents to ensure they can be
+        evenly divided between two winners (a common case in Tombola games). This
+        ensures easy distribution with real coins (10, 20, 50 cents, 1 and 2 euros).
+      </p>
+      <p class="text-neutral-300 text-sm leading-relaxed">
+        Any remainder is distributed proportionally among all prizes, maintaining
+        the exact total of the initial prize pool.
+      </p>
+      <p class="text-neutral-300 text-sm leading-relaxed">
+        You can also create custom variants: for example, some play with the
+        "Tombola" prize awarded on the second completed board, while the first completed board
+        wins a smaller prize called "Tombolino".
+      </p>
+    </article>
+  </main>
+</Layout>
