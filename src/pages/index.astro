@@ -1,82 +1,120 @@
 ---
-import { getCollection } from "astro:content";
-
-import ProjectCard from "@/components/ProjectCard.astro";
-import SocialLinks from "@/components/SocialLinks.astro";
-import Link from "@/components/shared/Link.astro";
 import Layout from "@/layouts/Layout.astro";
-import convertAsteriskToStrongTag from "@/utils/convertAsteriskToStrongTag";
-
 import presentation from "@/data/presentation";
-import projects from "@/data/projects";
-const { "aria-label": ariaLabel, id, text } = Astro.props;
-
-const href = `#${id}`;
-
-const posts = await getCollection("posts");
 ---
 
-<Layout>
-  <main class="flex flex-col gap-20">
-    <article class="flex flex-col gap-8">
-      <h1 class="text-3xl text-neutral-100">{presentation.title}</h1>
-      <h2
-        class="max-w-[60ch] leading-6"
-        set:html={convertAsteriskToStrongTag(presentation.description)}
-      />
-      <SocialLinks />
-    </article>
+<Layout title="Graziano Montanaro — Data Engineer">
+  <main>
+    <section class="profile" aria-labelledby="profile-name">
+      <img src="/profile.jpg" alt="Graziano Montanaro" width="946" height="1280" />
+      <div>
+        <div class="profile-heading">
+          <h1 id="profile-name">Graziano Montanaro</h1>
+          <p class="role">Data Engineer · Distributed Systems &amp; Platform</p>
+        </div>
+        <p class="profile-bio">I work on data platforms, distributed processing, and the engineering around reliable pipelines. Currently at Intella in Milan, Italy.</p>
+        <ul class="profile-links">
+          <li><a href={`mailto:${presentation.mail}`}>Email</a></li>
+          {presentation.socials.map((social) => <li><a href={social.link} target="_blank" rel="noreferrer">{social.label}</a></li>)}
+          <li><a class="profile-cv" href="/graziano-montanaro-cv.pdf">CV (PDF) ↓</a></li>
+        </ul>
+      </div>
+    </section>
 
-    <!-- <article class="flex flex-col gap-8">
-      <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-lg text-neutral-100">Latest posts</h3>
-        <Link href="/posts" label="See all posts" isUnderline target="_self" />
-      </header>
-      {posts.length === 0 && <p>Soon, stay connected 👀...</p>}
+    <section class="resume-section" id="experience" aria-labelledby="experience-title">
+      <h2 id="experience-title">Experience</h2>
+      <div class="entries">
+        <article class="entry">
+          <div class="entry-meta"><span>Sep 2024 — Present</span><span>Milan</span></div>
+          <div>
+            <h3>Data Engineer <span>at Intella</span></h3>
+            <ul>
+              <li>Set data engineering standards and built internal Python libraries used across data, data science, and full-stack teams.</li>
+              <li>Migrated TB-scale datasets to Delta Lake, rebuilt batch orchestration with Prefect, and added data quality checks—cutting storage costs and improving query performance by up to 90%.</li>
+              <li>Developed a fault-tolerant microservice orchestrating hundreds of concurrent jobs while meeting SLA requirements.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="entry">
+          <div class="entry-meta"><span>Feb 2023 — Sep 2024</span><span>Putignano</span></div>
+          <div>
+            <h3>Data Engineer <span>at Tuidi</span></h3>
+            <ul>
+              <li>Optimised ETL pipelines over TB-scale datasets with PySpark on Databricks and Polars, cutting processing time by up to 70%.</li>
+              <li>Introduced data quality checks and monitoring to improve data reliability and downstream ML model accuracy.</li>
+              <li>Built a Dash model-monitoring dashboard for prediction evaluation, degradation detection, and target shift.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
 
-      <section class="flex flex-col gap-4 md:flex-row md:flex-wrap">
-        {
-          posts.length !== 0 &&
-            posts
-              .slice(0, 2)
-              .map((post) => (
-                <PostCard
-                  publishedAt={post.data.publishedAt}
-                  title={post.data.title}
-                  description={post.data.description}
-                  slug={post.slug}
-                />
-              ))
-        }
-      </section>
-    </article> -->
+    <section class="resume-section" id="education" aria-labelledby="education-title">
+      <h2 id="education-title">Education</h2>
+      <div class="entries">
+        <article class="entry">
+          <div class="entry-meta"><span>2020 — 2022</span><span>110/110 cum laude</span></div>
+          <div>
+            <h3>Master’s in Computer Science and Artificial Intelligence</h3>
+            <p class="institution">University of Bari Aldo Moro</p>
+            <p>Thesis on multimodal 3D CNNs for dementia detection using MRI and amyloid PET scans. Achieved 95% accuracy on the OASIS-3 cohort and used SHAP and Grad-CAM for explainability. The work was published in <em>Scientific Reports</em> in 2024.</p>
+          </div>
+        </article>
+        <article class="entry">
+          <div class="entry-meta"><span>2017 — 2020</span><span>110/110 cum laude</span></div>
+          <div>
+            <h3>Bachelor’s in Computer Science</h3>
+            <p class="institution">University of Bari Aldo Moro</p>
+            <p>Developed a Laravel web platform for static analysis of web pages, designed to identify UX smells before usability testing.</p>
+          </div>
+        </article>
+      </div>
+    </section>
 
-    <article class="flex flex-col gap-8">
-      <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-lg text-neutral-100">
-          Projects ({projects.length})
-        </h3>
-      </header>
-      {projects.length === 0 && <p>Oops, I must work^^^^^</p>}
+    <section class="resume-section" id="skills" aria-labelledby="skills-title">
+      <h2 id="skills-title">Skills</h2>
+      <dl class="skills">
+        <div><dt>Programming</dt><dd>Python, Java, SQL</dd></div>
+        <div><dt>Data &amp; lakehouse</dt><dd>PySpark, Databricks, Delta Lake, Iceberg, dbt, Airflow, Prefect, Pandas, Polars, DuckDB, Ibis, Great Expectations</dd></div>
+        <div><dt>Streaming &amp; databases</dt><dd>Kafka, RabbitMQ, PostgreSQL, MySQL, MongoDB, Redis</dd></div>
+        <div><dt>Cloud &amp; DevOps</dt><dd>AWS (S3, Glue), Docker, Kubernetes, GitHub Actions, GitLab CI/CD, Grafana, Git, DVC</dd></div>
+        <div><dt>Languages</dt><dd>Italian (native), English (fluent)</dd></div>
+      </dl>
+    </section>
 
-      <section class="flex flex-col gap-4" {id}>
-        {
-          projects.length !== 0 &&
-            projects.map((project) => <ProjectCard {...project} />)
-        }
-      </section>
-    </article>
+    <section class="resume-section" id="projects" aria-labelledby="projects-title">
+      <h2 id="projects-title">Projects</h2>
+      <div class="compact-list">
+        <article>
+          <h3><a href="https://github.com/montanarograziano/poor-man-lakehouse" target="_blank" rel="noreferrer">Open-source Lakehouse ↗</a></h3>
+          <p>A composable local lakehouse using Polars, DuckDB, Delta Lake, Iceberg, and MinIO, with pluggable catalogs, query engines, and table formats.</p>
+          <ul class="project-tags" aria-label="Technologies"><li>Python</li><li>DuckDB</li><li>Delta Lake</li><li>Iceberg</li></ul>
+        </article>
+        <article>
+          <h3><a href="https://github.com/montanarograziano/spark_plan_viz" target="_blank" rel="noreferrer">Spark Query Plan Visualizer ↗</a></h3>
+          <p>An interactive D3.js visualizer for Spark DataFrame execution plans, built to surface optimization opportunities and performance bottlenecks.</p>
+          <ul class="project-tags" aria-label="Technologies"><li>PySpark</li><li>D3.js</li><li>JavaScript</li></ul>
+        </article>
+        <article>
+          <h3><a href="https://github.com/montanarograziano/Multimodal-approach-for-AD" target="_blank" rel="noreferrer">Multimodal Alzheimer’s Detection ↗</a></h3>
+          <p>Research code for detecting Alzheimer’s disease from 3D MRI and amyloid PET scans, with explainability through SHAP and Grad-CAM.</p>
+          <ul class="project-tags" aria-label="Technologies"><li>Python</li><li>3D CNN</li><li>SHAP</li><li>Grad-CAM</li></ul>
+        </article>
+        <article>
+          <h3><a href="/tombola">Tombola Prize Calculator →</a></h3>
+          <p>A small utility for distributing a traditional Italian Tombola prize pool while preserving minimum prizes and practical rounding.</p>
+          <ul class="project-tags" aria-label="Technologies"><li>Astro</li><li>TypeScript</li></ul>
+        </article>
+      </div>
+    </section>
 
-    <article class="flex flex-col gap-8">
-      <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-lg text-neutral-100">Get in touch</h3>
-      </header>
-      <p>
-        Email me at <Link
-          href={`mailto:${presentation.mail}`}
-          label={presentation.mail}
-        /> or follow me via my social links.
-      </p>
-    </article>
+    <section class="resume-section" id="publications" aria-labelledby="publications-title">
+      <h2 id="publications-title">Publications</h2>
+      <ol class="publications">
+        <li><span>2024</span><p><a href="https://www.nature.com/articles/s41598-024-56001-9" target="_blank" rel="noreferrer">Automated detection of Alzheimer’s disease: a multi-modal approach with 3D MRI and amyloid PET.</a> <em>Scientific Reports 14</em>, 5210.</p></li>
+        <li><span>2021</span><p><a href="https://ieeexplore.ieee.org/document/9660102" target="_blank" rel="noreferrer">Detection of Dementia through 3D convolutional neural networks based on amyloid PET.</a> <em>2021 IEEE SSCI.</em></p></li>
+      </ol>
+    </section>
+
   </main>
 </Layout>

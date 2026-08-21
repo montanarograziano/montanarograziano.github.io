@@ -1,57 +1,75 @@
----
-import presentation from "@/data/presentation";
-import removeTrailingSlash from "@/utils/removeTrailingSlash";
-import { getCollection } from "astro:content";
-
-const pathname = removeTrailingSlash(Astro.url.pathname);
-const posts = await getCollection("posts");
-const { "aria-label": ariaLabel, id, text } = Astro.props;
----
-
-<header class="z-40 flex w-full flex-col gap-2 md:flex-row md:justify-between">
-  <a href=`/` class="hover:text-neutral-100">{presentation.fullName}</a>
-
-  <nav role="navigation">
-    <ul role="list" class="flex flex-row gap-2">
-      <li>
-        <a
-          href="/"
-          class:list={{
-            ["hover:text-neutral-100"]: true,
-            ["text-neutral-100"]: pathname === "/",
-          }}>Home</a
-        >
-      </li>
-      <li>/</li>
-      <li>
-        <a
-          href={`/posts/${posts[0].slug}`}
-          class:list={{
-            ["hover:text-neutral-100"]: true,
-            ["text-neutral-100"]: pathname === `/posts/${posts[0].slug}`,
-          }}>About</a
-        >
-      </li>
-      <li>/</li>
-      <li>
-        <a
-          href="/#projects"
-          class:list={{
-            ["hover:text-neutral-100"]: true,
-            ["text-neutral-100"]: pathname === `/#projects`,
-          }}>Projects</a
-        >
-      </li>
-      <li>/</li>
-      <li>
-        <a
-          href="/tombola"
-          class:list={{
-            ["hover:text-neutral-100"]: true,
-            ["text-neutral-100"]: pathname === `/tombola`,
-          }}>Tombola</a
-        >
-      </li>
-    </ul>
+<header class="site-header">
+  <a class="site-name" href="/">Graziano Montanaro</a>
+  <nav aria-label="Main navigation">
+    <a href="/#experience">Experience</a>
+    <a href="/#education">Education</a>
+    <a href="/#projects">Projects</a>
+    <a class="nav-cv" href="/graziano-montanaro-cv.pdf">CV</a>
   </nav>
+  <div class="header-tools">
+    <label class="site-search">
+      <span class="sr-only">Search sections</span>
+      <input type="search" placeholder="Search" autocomplete="off" data-search-input />
+    </label>
+    <button class="theme-button" type="button" data-theme-toggle aria-label="Theme follows system setting">◐</button>
+  </div>
+  <div class="search-results" data-search-results hidden>
+    <a href="/#experience" data-search-item="experience intella tuidi data engineer etl pipelines distributed systems">Experience</a>
+    <a href="/#education" data-search-item="education masters bachelor university bari artificial intelligence thesis">Education</a>
+    <a href="/#skills" data-search-item="skills python java sql pyspark databricks delta lake docker kubernetes aws kafka">Skills</a>
+    <a href="/#projects" data-search-item="projects open source lakehouse spark query plan visualizer multimodal alzheimer detection github">Projects</a>
+    <a href="/#publications" data-search-item="publications research dementia alzheimer mri pet scientific reports ieee">Publications</a>
+    <a href="/graziano-montanaro-cv.pdf" data-search-item="cv resume curriculum vitae pdf">CV</a>
+    <a href="/tombola" data-search-item="tombola calculator italian game prizes">Tombola calculator</a>
+    <span data-search-empty hidden>No results</span>
+  </div>
 </header>
+
+<script>
+  const root = document.documentElement;
+  const themeButton = document.querySelector<HTMLButtonElement>("[data-theme-toggle]");
+  const themes = ["system", "light", "dark"];
+  const themeIcons = { system: "◐", light: "☀", dark: "☾" };
+
+  function setTheme(theme: string) {
+    root.dataset.theme = theme;
+    localStorage.setItem("theme", theme);
+    if (themeButton) {
+      const label = theme === "system" ? "Theme follows system setting" : `Using ${theme} theme`;
+      themeButton.textContent = themeIcons[theme as keyof typeof themeIcons];
+      themeButton.setAttribute("aria-label", label);
+      themeButton.title = `${label}. Click to change.`;
+    }
+  }
+
+  setTheme(localStorage.getItem("theme") || "system");
+  themeButton?.addEventListener("click", () => {
+    const current = root.dataset.theme || "system";
+    setTheme(themes[(themes.indexOf(current) + 1) % themes.length]);
+  });
+
+  const input = document.querySelector<HTMLInputElement>("[data-search-input]");
+  const results = document.querySelector<HTMLElement>("[data-search-results]");
+  const items = [...document.querySelectorAll<HTMLElement>("[data-search-item]")];
+  const empty = document.querySelector<HTMLElement>("[data-search-empty]");
+
+  input?.addEventListener("input", () => {
+    const query = input.value.toLowerCase().trim();
+    if (results) results.hidden = !query;
+    const matches = items.filter((item) => {
+      const match = item.dataset.searchItem?.includes(query) ?? false;
+      item.hidden = !match;
+      return match;
+    });
+    if (empty) empty.hidden = matches.length > 0;
+  });
+  input?.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      input.value = "";
+      if (results) results.hidden = true;
+    }
+  });
+  document.addEventListener("click", (event) => {
+    if (!document.querySelector(".site-header")?.contains(event.target as Node) && results) results.hidden = true;
+  });
+</script>

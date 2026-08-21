@@ -1,73 +1,24 @@
 ---
 import { SITE_URL } from "@/data/config";
-import { SEO } from "astro-seo";
 
-type Props = {
-  title?: string;
-  description?: string;
-  noindex?: boolean;
-  og?: {
-    title: string;
-    type: string;
-    description: string;
-    image: string;
-    alt: string;
-  };
-};
-
-const { title, description, noindex, og } = Astro.props;
-
-const DEFAULT_TITLE_PAGE = "Graziano Montanaro - Personal website and blog.";
-const DEFAULT_DESCRIPTION_PAGE =
-  "Graziano Montanaro's personal website and blog.";
-const DEFAULT_URL_SITE = SITE_URL;
-
-const openGraph = {
-  title: og?.title || DEFAULT_TITLE_PAGE,
-  type: og?.type || "website",
-  image: og?.image || "/opengraph-image.jpg",
-  alt: og?.alt || "portfolio image",
-  url: DEFAULT_URL_SITE,
-  description: og?.description || DEFAULT_DESCRIPTION_PAGE,
-};
+const {
+  title = "Graziano Montanaro — Data Engineer",
+  description = "Data engineer working on distributed systems, data platforms, and reliable pipelines.",
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, SITE_URL);
 ---
 
 <head>
-  <SEO
-    charset="UTF-8"
-    title={title || DEFAULT_TITLE_PAGE}
-    description={description || DEFAULT_DESCRIPTION_PAGE}
-    noindex={noindex || false}
-    openGraph={{
-      basic: {
-        title: openGraph.title,
-        type: openGraph.type,
-        image: openGraph.image,
-      },
-      image: {
-        alt: openGraph.alt,
-      },
-    }}
-    twitter={{
-      creator: "@itsstormzz_",
-    }}
-    extend={{
-      link: [
-        { rel: "icon", href: "/favicon.svg" },
-        { rel: "sitemap", href: "/sitemap-index.xml" },
-      ],
-      meta: [
-        { name: "viewport", content: "width=device-width, initial-scale=1" },
-        { name: "generator", content: Astro.generator },
-        {
-          name: "twitter:image",
-          content: openGraph.image,
-        },
-        { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: openGraph.title },
-        { name: "twitter:description", content: openGraph.description },
-        { name: "twitter:site", content: "@itsstormzz_" },
-      ],
-    }}
-  />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="generator" content={Astro.generator} />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <link rel="icon" href="/favicon.svg" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={`${SITE_URL}/profile.jpg`} />
 </head>

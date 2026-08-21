@@ -1,12 +1,13 @@
 ---
 import SEOTags from "@/components/seo/SEOTags.astro";
-import BlurCircle from "@/components/shared/BlurCircle.astro";
-import theme from "@/data/theme";
-import Header from "../components/Header.astro";
+import Header from "@/components/Header.astro";
 
-import "@/styles/post.css";
+import "@fontsource/source-sans-3/400.css";
+import "@fontsource/source-sans-3/600.css";
+import "@fontsource/source-serif-4/400.css";
+import "@fontsource/source-serif-4/400-italic.css";
+import "@fontsource/source-serif-4/600.css";
 import "@/styles/tailwind.css";
-import "@fontsource/open-sans";
 
 export interface Props {
   title?: string;
@@ -15,21 +16,18 @@ export interface Props {
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth hover:scroll-auto">
+<!doctype html>
+<html lang="en">
   <SEOTags title={title} />
-
-  <body
-    class="mx-auto flex min-h-screen max-w-[872px] flex-col gap-9 bg-neutral-950 px-10 py-8 text-sm text-neutral-400 md:gap-20 md:py-16"
-  >
-    <Header />
-    <BlurCircle position="top" color={theme.colors.blur.top} />
-    <BlurCircle position="bottom" color={theme.colors.blur.bottom} />
-    <slot />
-    <style is:global>
-      html {
-        font-family: "Open Sans";
-      }
-    </style>
+  <script is:inline>
+    const savedTheme = localStorage.getItem("theme");
+    document.documentElement.dataset.theme = savedTheme || "system";
+  </script>
+  <body>
+    <div class="site-shell">
+      <Header />
+      <slot />
+      <footer class="site-footer">© {new Date().getFullYear()} Graziano Montanaro</footer>
+    </div>
   </body>
 </html>
