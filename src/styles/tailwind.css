@@ -236,31 +236,6 @@ h1 { margin-bottom: 1px; font-size: clamp(2rem, 4vw, 2.65rem); font-weight: 600;
 .publications a { color: var(--text); font-weight: 600; text-decoration-color: var(--accent); }
 .site-footer { padding: 20px 0 34px; border-top: 1px solid var(--border); color: var(--muted); font-size: .75rem; }
 
-.tool-page { max-width: 700px; padding: 46px 0 64px; }
-.tool-intro { margin-bottom: 28px; }
-.tool-intro h1 { margin-bottom: 7px; font-size: 1.9rem; }
-.tool-intro p { color: var(--muted); }
-.tool-notes { margin-top: 36px; padding: 25px 27px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
-.tool-notes h2 { font-size: 1rem; font-weight: 600; }
-.tool-notes ul { padding-left: 18px; margin-bottom: 0; }
-.tombola-calculator { max-width: none !important; margin: 0 !important; }
-.calculator-container { padding: 26px !important; border: 1px solid var(--border); border-radius: 12px !important; background: var(--surface) !important; box-shadow: var(--shadow) !important; }
-.calculator-container h2 { margin-bottom: 4px; font-size: 1.15rem; font-weight: 600; }
-.calculator-container label { display: block; margin: 16px 0 5px; font-family: "Source Sans 3", sans-serif; font-size: .84rem; }
-.calculator-container input { display: block; width: 100%; padding: 9px 11px; border: 1px solid var(--border); border-radius: 6px !important; background: var(--background) !important; color: var(--text) !important; }
-.calculator-container input:focus { border-color: var(--accent); outline: 2px solid var(--accent-soft); }
-.calculator-container button { width: 100%; margin-top: 18px; padding: 10px 12px; border: 1px solid var(--accent); border-radius: 7px !important; background: var(--accent) !important; color: white; font-family: "Source Sans 3", sans-serif; cursor: pointer; }
-.calculator-container .hidden { display: none; }
-.warning-section, .remainder-section, .total-check { margin-top: 16px; padding: 12px; border: 1px solid var(--border); }
-.prizes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; margin-top: 16px; }
-.prize-item { padding: 12px; border: 1px solid var(--border); border-radius: 7px !important; }
-.prize-item > div { display: flex; justify-content: space-between; gap: 8px; }
-.prize-value { display: block; margin-top: 4px; font-family: "Source Sans 3", sans-serif; font-size: 1.1rem; }
-.bg-neutral-800, .bg-neutral-700, .bg-neutral-900 { background-color: var(--surface-muted) !important; }
-.text-neutral-100 { color: var(--text) !important; }
-.text-neutral-300, .text-neutral-400, .text-neutral-500 { color: var(--muted) !important; }
-.border-neutral-700, .border-neutral-600 { border-color: var(--border) !important; }
-
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
 }
