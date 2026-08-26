@@ -10,9 +10,9 @@ import presentation from "@/data/presentation";
       <div>
         <div class="profile-heading">
           <h1 id="profile-name">Graziano Montanaro</h1>
-          <p class="role">Data Engineer · Distributed Systems &amp; Platform</p>
+          <p class="role">Data Engineer</p>
         </div>
-        <p class="profile-bio">I work on data platforms, distributed processing, and the engineering around reliable pipelines. Currently at Intella in Milan, Italy.</p>
+        <p class="profile-bio">I work on data platforms, distributed processing, and the engineering around reliable pipelines. Currently at Intella (Milan), working remotely from Italy.</p>
         <ul class="profile-links">
           <li><a href={`mailto:${presentation.mail}`}>Email</a></li>
           {presentation.socials.map((social) => <li><a href={social.link} target="_blank" rel="noreferrer">{social.label}</a></li>)}
@@ -25,13 +25,14 @@ import presentation from "@/data/presentation";
       <h2 id="experience-title">Experience</h2>
       <div class="entries">
         <article class="entry">
-          <div class="entry-meta"><span>Sep 2024 — Present</span><span>Milan</span></div>
+          <div class="entry-meta"><span>Sep 2024 — Present</span><span>Milan (Remote)</span></div>
           <div>
             <h3>Data Engineer <span>at <a href="https://www.intella.tech/" target="_blank" rel="noreferrer">Intella</a></span></h3>
             <ul>
-              <li>Set data engineering standards and built internal Python libraries used across data, data science, and full-stack teams.</li>
-              <li>Migrated TB-scale datasets to Delta Lake, rebuilt batch orchestration with Prefect, and added data quality checks—cutting storage costs and improving query performance by up to 90%.</li>
-              <li>Developed a fault-tolerant microservice orchestrating hundreds of concurrent jobs while meeting SLA requirements.</li>
+              <li>Set company-wide data engineering standards and built shared Python libraries used across five microservices by data, ML, and full-stack engineers, covering configuration, structured logging, storage I/O, and data quality.</li>
+              <li>Re-architected the storage layer: migrated TB-scale datasets to Delta Lake and rebuilt Prefect orchestration on Kubernetes, cutting query latency up to 90% and memory use via predicate and projection pushdown in Polars.</li>
+              <li>Delivered the API and Prefect synchronisation layer for LTTB-based telemetry downsampling on TimescaleDB, enabling interactive charting over multi-year ranges.</li>
+              <li>Built a fault-tolerant microservice orchestrating hundreds of concurrent jobs within SLA, with retries and fault isolation.</li>
             </ul>
           </div>
         </article>
@@ -40,9 +41,9 @@ import presentation from "@/data/presentation";
           <div>
             <h3>Data Engineer <span>at <a href="https://www.tuidi.ai/" target="_blank" rel="noreferrer">Tuidi</a></span></h3>
             <ul>
-              <li>Optimised ETL pipelines over TB-scale datasets with PySpark on Databricks and Polars, cutting processing time by up to 70%.</li>
-              <li>Introduced data quality checks and monitoring to improve data reliability and downstream ML model accuracy.</li>
-              <li>Built a Dash model-monitoring dashboard for prediction evaluation, degradation detection, and target shift.</li>
+              <li>Optimised ETL over TB-scale data by combining distributed PySpark on Databricks with single-node Polars for smaller workloads, cutting runtime by up to 70% on the heaviest pipelines.</li>
+              <li>Introduced automated data quality checks and monitoring, improving reliability across downstream forecasting pipelines.</li>
+              <li>Built a Dash dashboard for retail sales forecasting models, surfacing prediction quality, degradation, and target drift.</li>
             </ul>
           </div>
         </article>
@@ -57,7 +58,7 @@ import presentation from "@/data/presentation";
           <div>
             <h3>Master’s in Computer Science and Artificial Intelligence</h3>
             <p class="institution">University of Bari Aldo Moro</p>
-            <p>Thesis on multimodal 3D CNNs for dementia detection using MRI and amyloid PET scans. Achieved 95% accuracy on the OASIS-3 cohort and used SHAP and Grad-CAM for explainability. The work was published in <em>Scientific Reports</em> in 2024.</p>
+            <p>Multimodal 3D CNN thesis for Alzheimer’s detection from MRI and amyloid PET, reaching 95% accuracy on the OASIS-3 cohort.</p>
           </div>
         </article>
         <article class="entry">
@@ -74,10 +75,11 @@ import presentation from "@/data/presentation";
     <section class="resume-section" id="skills" aria-labelledby="skills-title">
       <h2 id="skills-title">Skills</h2>
       <dl class="skills">
-        <div><dt>Programming</dt><dd>Python, Java, SQL</dd></div>
-        <div><dt>Data &amp; lakehouse</dt><dd>PySpark, Databricks, Delta Lake, Iceberg, dbt, Airflow, Prefect, Pandas, Polars, DuckDB, Ibis, Great Expectations</dd></div>
-        <div><dt>Streaming &amp; databases</dt><dd>Kafka, RabbitMQ, PostgreSQL, MySQL, MongoDB, Redis</dd></div>
-        <div><dt>Cloud &amp; DevOps</dt><dd>AWS (S3, Glue), Docker, Kubernetes, GitHub Actions, GitLab CI/CD, Grafana, Git, DVC</dd></div>
+        <div><dt>Programming &amp; APIs</dt><dd>Python, SQL, Java, FastAPI, Pydantic, Apache Arrow/Flight, gRPC</dd></div>
+        <div><dt>Data &amp; lakehouse</dt><dd>PySpark, Databricks, Delta Lake, Iceberg, dbt, Airflow, Prefect, Pandas, Polars, DuckDB, DuckLake, Ibis, Great Expectations</dd></div>
+        <div><dt>ML &amp; MLOps</dt><dd>PyTorch, TensorFlow, scikit-learn, MLflow, DVC, SHAP, Grad-CAM; time series forecasting, computer vision</dd></div>
+        <div><dt>Streaming &amp; databases</dt><dd>Kafka, RabbitMQ, PostgreSQL, TimescaleDB, MySQL, MongoDB, Redis</dd></div>
+        <div><dt>Cloud &amp; DevOps</dt><dd>AWS (S3, Glue), Docker, Kubernetes, GitHub Actions, GitLab CI/CD, Grafana, Git</dd></div>
         <div><dt>Languages</dt><dd>Italian (native), English (fluent)</dd></div>
       </dl>
     </section>
@@ -87,12 +89,12 @@ import presentation from "@/data/presentation";
       <div class="compact-list">
         <article>
           <h3><a href="https://github.com/montanarograziano/italy-dashboard" target="_blank" rel="noreferrer">Italy Dashboard ↗</a></h3>
-          <p>A snapshot-first data platform unifying official Italian statistics (ISTAT, INPS, MUR, Open-Meteo/Copernicus) for public-source verification. <a href="https://montanarograziano.github.io/italy-dashboard/" target="_blank" rel="noreferrer">Live demo</a>.</p>
+          <p>A reproducible public-data platform unifying official Italian statistics from ISTAT, INPS, MUR, and weather providers, with CI-enforced provenance checks. <a href="https://montanarograziano.github.io/italy-dashboard/" target="_blank" rel="noreferrer">Live demo</a>.</p>
           <ul class="project-tags" aria-label="Technologies"><li>Python</li><li>dbt</li><li>DuckDB</li><li>Parquet</li></ul>
         </article>
         <article>
           <h3><a href="https://github.com/montanarograziano/poor-man-lakehouse" target="_blank" rel="noreferrer">Open-source Lakehouse ↗</a></h3>
-          <p>A composable local lakehouse using Polars, DuckDB, Delta Lake, Iceberg, and MinIO, with pluggable catalogs, query engines, and table formats.</p>
+          <p>A composable open-source lakehouse spanning local and AWS deployments, unifying four catalog backends, Iceberg and Delta Lake, and Spark, Polars, DuckDB, and Ibis access through a tested Python connector.</p>
           <ul class="project-tags" aria-label="Technologies"><li>Python</li><li>DuckDB</li><li>Delta Lake</li><li>Iceberg</li></ul>
         </article>
         <article>
