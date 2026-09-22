@@ -6,7 +6,7 @@ import presentation from "@/data/presentation";
 <Layout title="Graziano Montanaro — Data Engineer">
   <main>
     <section class="profile" aria-labelledby="profile-name">
-      <img src="/profile.jpg" alt="Graziano Montanaro" width="946" height="1280" />
+      <img src="/pic-speech.png" alt="Graziano Montanaro speaking" width="800" height="800" />
       <div>
         <div class="profile-heading">
           <h1 id="profile-name">Graziano Montanaro</h1>
@@ -25,13 +25,22 @@ import presentation from "@/data/presentation";
       <h2 id="experience-title">Experience</h2>
       <div class="entries">
         <article class="entry">
+          <div class="entry-meta"><span>Jul 2026 — Aug 2026</span><span>Remote</span></div>
+          <div>
+            <h3>AI Tutor - Software Engineer Specialist <span>at SpaceXAI <em>(Freelance)</em></span></h3>
+            <ul>
+              <li>Evaluated and critiqued Grok's software-engineering outputs against rubrics, writing reference solutions in Python.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="entry">
           <div class="entry-meta"><span>Sep 2024 — Present</span><span>Milan (Remote)</span></div>
           <div>
             <h3>Data Engineer <span>at <a href="https://www.intella.tech/" target="_blank" rel="noreferrer">Intella</a></span></h3>
             <ul>
               <li>Set company-wide data engineering standards and built shared Python libraries used across five microservices by data, ML, and full-stack engineers, covering configuration, structured logging, storage I/O, and data quality.</li>
               <li>Re-architected the storage layer: migrated TB-scale datasets to Delta Lake and rebuilt Prefect orchestration on Kubernetes, cutting query latency up to 90% and memory use via predicate and projection pushdown in Polars.</li>
-              <li>Delivered the API and Prefect synchronisation layer for LTTB-based telemetry downsampling on TimescaleDB, enabling interactive charting over multi-year ranges.</li>
+              <li>Delivered the API and Prefect synchronization layer for LTTB-based telemetry downsampling on TimescaleDB, enabling interactive charting over multi-year ranges.</li>
               <li>Built a fault-tolerant microservice orchestrating hundreds of concurrent jobs within SLA, with retries and fault isolation.</li>
             </ul>
           </div>
@@ -41,7 +50,7 @@ import presentation from "@/data/presentation";
           <div>
             <h3>Data Engineer <span>at <a href="https://www.tuidi.ai/" target="_blank" rel="noreferrer">Tuidi</a></span></h3>
             <ul>
-              <li>Optimised ETL over TB-scale data by combining distributed PySpark on Databricks with single-node Polars for smaller workloads, cutting runtime by up to 70% on the heaviest pipelines.</li>
+              <li>Optimized ETL over TB-scale data by combining distributed PySpark on Databricks with single-node Polars for smaller workloads, cutting runtime by up to 70% on the heaviest pipelines.</li>
               <li>Introduced automated data quality checks and monitoring, improving reliability across downstream forecasting pipelines.</li>
               <li>Built a Dash dashboard for retail sales forecasting models, surfacing prediction quality, degradation, and target drift.</li>
             </ul>
